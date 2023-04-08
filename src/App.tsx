@@ -12,8 +12,8 @@ function App() {
 		<div className="App">
       <nav>
         <ul>
-          <li><Link to="/">Products</Link></li>
-          <li><Link to="/product/bag">SingleProduct</Link></li>
+          <li><Link to="/">Shop</Link></li>
+          {/* <li><Link to="/product/bag">SingleProduct</Link></li> */}
           <li><Link to="/cart">Cart</Link></li>
         </ul>
       </nav>

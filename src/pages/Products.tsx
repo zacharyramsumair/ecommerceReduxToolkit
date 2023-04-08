@@ -3,6 +3,7 @@ import ProductCard from "../components/ProductCard";
 import { useGetData } from "../hooks/useGetData";
 import "./styles/Products.scss"
 
+
 type Props = {};
 
 export interface IProductElements {
@@ -29,7 +30,7 @@ const Products = (props: Props) => {
    
 
 	let ProductElements = data?.data.map((item:IProductElements) => {
-        return <ProductCard image={item.image} title={item.title} price={item.price} rating={item.rating.rate} id={item.id}/>
+        return <ProductCard image={item.image} title={item.title} price={item.price} rating={item.rating.rate} id={item.id} key={item.id}/>
 	});
 	return (
 		<section className="products">

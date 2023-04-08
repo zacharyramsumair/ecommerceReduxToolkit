@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useGetData } from "../hooks/useGetData";
 import { useParams } from "react-router-dom";
 import "./styles/SingleProduct.scss";
+import { AiFillStar } from "react-icons/ai";
 
 type Props = {};
 
@@ -41,7 +42,10 @@ const SingleProduct = (props: Props) => {
 			</div>
 			<div className="info">
 				<h2>{data?.data.title}</h2>
-				<p>{data?.data.rating.rate}</p>
+                <div className="rating">
+				<p>{data?.data.rating.rate}</p> <AiFillStar/>
+
+                </div>
 				<p>{data?.data.description}</p>
 				<h3>${data?.data.price}</h3>
 			</div>

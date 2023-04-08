@@ -68,14 +68,13 @@
         }
     }
 
+    .rating {
+        display: flex;
+        align-items: center;
+    }
 
-    // .info {
-    //     width: 40%;
-    // }
 
-    // .buying {
-    //     width: 20%;
-    // }
+  
 
     @media screen and (max-width:1000px) {
         flex-direction: column;
