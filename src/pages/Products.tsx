@@ -20,10 +20,10 @@ const Products = (props: Props) => {
    
 
 	if (isLoading) {
-		return <div>Loading...</div>;
+		return <section className="products">Loading...</section>;
 	}
 	if (error) {
-		return <div>An Error has occurred ... {error?.message}</div>;
+		return <section className="products">An Error has occurred ... {error?.message}</section>;
 	}
 
    
@@ -32,10 +32,9 @@ const Products = (props: Props) => {
         return <ProductCard image={item.image} title={item.title} price={item.price} rating={item.rating.rate} id={item.id}/>
 	});
 	return (
-		<div className="products">
+		<section className="products">
             {ProductElements}
-
-		</div>
+		</section>
 	);
 };
 
