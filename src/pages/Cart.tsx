@@ -2,25 +2,25 @@ import React from 'react'
 import { useGetData } from '../hooks/useGetData';
 import CartCard from '../components/CartCard';
 import "./styles/Cart.scss"
+import { useSelector, useDispatch } from 'react-redux'
+import { RootState } from '../app/store';
+
 
 type Props = {}
 
 const Cart = (props: Props) => {
-  let { isLoading, error, data , refetch} = useGetData({ key:'products', endpoint: "products" });
+  // let { isLoading, error, data , refetch} = useGetData({ key:'products', endpoint: "products" });
+
+  
+
+  const data = useSelector((state: RootState) => state.cart.value)
 
    
 
-	if (isLoading) {
-		return <section className="cart">Loading...</section>;
-	}
-	if (error) {
-		return <section className="cart">An Error has occurred ... {error?.message}</section>;
-	}
-
    
 
-	let ProductElements = data?.data.map((item) => {
-        return <CartCard image={item.image} title={item.title} price={item.price} key={item.id} id={item.id} quantity={4}/>
+	let ProductElements = data.map((item) => {
+        return <CartCard image={item.image} title={item.title} price={item.price} key={item.id} id={item.id} quantity={item.quantity}/>
 	});
 	return (
 		<section className="cart">

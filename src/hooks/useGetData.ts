@@ -17,7 +17,6 @@ interface IData {
 }
 
 export const useGetData = (props: Props) => {
-    console.log(props.endpoint)
 
     const { isLoading, error, data, refetch } = useQuery([props.key], () =>
         axios(`https://fakestoreapi.com/${props.endpoint}`), {

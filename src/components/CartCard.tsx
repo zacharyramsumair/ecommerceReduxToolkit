@@ -11,8 +11,17 @@ type Props = {
 
 }
 const CartCard = (props: Props) => {
+
+    let navigate = useNavigate()
+
+
+  const goToItem =() =>{
+
+      navigate(`/product/${props.id}`)
+  
+  }
   return (
-    <div className='cartCard'>
+    <div className='cartCard' onClick={goToItem}>
         <div>
             <img src={props.image} alt="" />
         </div>
@@ -20,7 +29,7 @@ const CartCard = (props: Props) => {
             <h2>{props.title}</h2>
             <div className="quantityControls">
 					<button>-</button>
-					<span>7</span>
+					<span>{props.quantity}</span>
 					<button >+</button>
 				</div>
         </div>

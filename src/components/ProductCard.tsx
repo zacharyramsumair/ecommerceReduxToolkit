@@ -21,7 +21,6 @@ const ProductCard = (props: Props) => {
 
 
     const goToItem =() =>{
-        console.log("cl")
 
         navigate(`/product/${props.id}`)
     
