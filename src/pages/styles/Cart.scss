@@ -9,6 +9,8 @@
 
     .cartItems {
         display: flex;
+                // flex-direction: column;
+
     }
 
     .products {
@@ -24,6 +26,17 @@
         border: 1px solid black;
         padding: 1em;
         border-radius: 1em;
+        position: relative;
+        
+
+        .deleteCard{
+            position: absolute;
+            bottom: 1em;
+            right: 1em;
+            cursor: pointer;
+            color: red;
+            font-size: 1.3rem;
+        }
 
         div {
             max-width: 50vw;
@@ -56,12 +69,51 @@
     }
 
     .checkout {
+        margin: 1em;
         button {
             margin: 1em 0;
             padding: 1em;
             border: none;
             border-radius: 1em;
             cursor: pointer;
+        }
+    }
+
+
+    @media screen and (max-width:800px) {
+        .cartItems {
+            display: flex;
+                    flex-direction: column;
+    
+
+                    img {
+                        width: 8em;
+                    }
+
+                    h2{
+                        font-size: 1rem;
+                    }
+
+                    .quantityControls {
+                        margin: 0.5em 0;
+                        z-index: 10;
+            
+            
+            
+                        button {
+                            font-size: 1rem;
+                            padding: 0.5em;
+                            border-radius: 0.5em;
+                            border: none;
+                            cursor: pointer;
+                        }
+            
+                        span {
+                            margin: 0 0.5em;
+                            font-size: 1rem;
+            
+                        }
+                    }
         }
     }
 }

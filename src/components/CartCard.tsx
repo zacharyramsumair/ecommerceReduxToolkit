@@ -73,7 +73,7 @@ const CartCard = (props: Props) => {
 			<div>
 				<h2>${props.price.toFixed(2)}</h2>
 			</div>
-			<div onClick={e => deleteCard(e)}>
+			<div onClick={e => deleteCard(e)} className="deleteCard">
 				<FaTrashAlt />
 			</div>
 		</div>

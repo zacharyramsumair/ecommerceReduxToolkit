@@ -4,7 +4,7 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 // return <CartCard image={item.image} title={item.title} price={item.price} key={item.id} id={item.id} quantity={4}/>
 
 
-interface ICart {
+export interface ICart {
     image: string;
     title: string;
     price: number;

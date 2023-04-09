@@ -5,8 +5,8 @@ import SingleProduct from "./pages/SingleProduct";
 import Cart from "./pages/Cart";
 import Error from "./pages/Error";
 import { useSelector } from "react-redux";
-import { RootState } from "./app/store";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { RootState } from "./app/store";
 
 
 
