@@ -82,7 +82,7 @@ const SingleProduct = (props: Props) => {
 				<h3>${data?.data?.price.toFixed(2)}</h3>
 			</div>
 			<div className="buying">
-				<h2>${data?.data?.price}</h2>
+				<h2>${data?.data?.price.toFixed(2)}</h2>
 				<div className="quantityControls">
 					<button onClick={minusQuantity}>-</button>
 					<span>{quantity}</span>
