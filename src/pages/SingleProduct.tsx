@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useGetData } from "../hooks/useGetData";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./styles/SingleProduct.scss";
 import { AiFillStar } from "react-icons/ai";
 import { useSelector, useDispatch } from "react-redux";
@@ -11,6 +11,7 @@ type Props = {};
 
 const SingleProduct = (props: Props) => {
 	const dispatch = useDispatch();
+    let navigate = useNavigate()
 
 	let { productID } = useParams();
 	let { isLoading, error, data } = useGetData({
@@ -22,9 +23,16 @@ const SingleProduct = (props: Props) => {
 	const index = cartProductInfo.findIndex(
 		(item) => item.id === data?.data?.id
 	);
-	let [quantity, setQuantity] = useState<number>(
-		cartProductInfo[index]?.quantity | 1
-	);
+	let [quantity, setQuantity] = useState<number>(() => {
+		if (cartProductInfo[index]) {
+			return cartProductInfo[index]?.quantity;
+		}else{
+            return 1
+        }
+	});
+
+	// console.log(quantity);
+	// console.log(cartProductInfo[index]?.quantity);
 
 	const minusQuantity = () => {
 		if (quantity > 1) {
@@ -55,6 +63,8 @@ const SingleProduct = (props: Props) => {
 				price: data.data.price,
 			})
 		);
+
+        navigate("/cart")
 	};
 
 	return (
@@ -69,7 +79,7 @@ const SingleProduct = (props: Props) => {
 					<p>{data?.data?.rating?.rate}</p> <AiFillStar />
 				</div>
 				<p>{data?.data?.description}</p>
-				<h3>${data?.data?.price}</h3>
+				<h3>${data?.data?.price.toFixed(2)}</h3>
 			</div>
 			<div className="buying">
 				<h2>${data?.data?.price}</h2>

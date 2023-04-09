@@ -12,6 +12,7 @@ interface ICart {
     id: number;
     quantity: number;
 
+
 }
 
 export interface CartState {
@@ -41,11 +42,25 @@ export const cartSlice = createSlice({
                 state.value.push(newItem);
             }
 
-        }
+        },
+        updateCart: (state, action) => {
+            state.value.map(item => {
+                if (item.id == action.payload.id) {
+                    item.quantity = action.payload.quantity
+                    // {...item, quantity: action.payload.quantity }
+                }
+            })
+        },
+
+        deleteItem: (state, action) => {
+            state.value = state.value.filter((item) => item.id !== action.payload.id);
+        },
+
+
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { addToCart } = cartSlice.actions
+export const { addToCart, updateCart, deleteItem } = cartSlice.actions
 
 export default cartSlice.reducer

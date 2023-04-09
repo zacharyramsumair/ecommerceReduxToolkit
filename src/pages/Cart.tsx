@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useGetData } from '../hooks/useGetData';
 import CartCard from '../components/CartCard';
 import "./styles/Cart.scss"
@@ -15,6 +15,25 @@ const Cart = (props: Props) => {
 
   const data = useSelector((state: RootState) => state.cart.value)
 
+  // console.log(data)
+
+  // const sum = data.reduce((acc, cur) => {
+  //   return acc + cur.price * cur.quantity;
+  // }, 0);
+
+  const calcTotal = () =>{
+    return data.reduce((acc, cur) => {
+      return acc + cur.price * cur.quantity;
+    }, 0);
+  }
+
+  let [total , setTotal] = useState<number>(()=>{
+   return calcTotal()
+  })
+
+  useEffect(()=>{
+setTotal(calcTotal())
+  }, [data])
    
 
    
@@ -31,7 +50,7 @@ const Cart = (props: Props) => {
             {ProductElements}
       </div>
       <div className="checkout">
-        <h2>Subtotal (2 items): $154.57</h2>
+        <h2>Subtotal: ${total.toFixed(2)}</h2>
         <button >Proceed to Checkout</button>
       </div>
       </div>

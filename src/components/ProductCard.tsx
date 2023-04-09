@@ -29,7 +29,7 @@ const ProductCard = (props: Props) => {
 	 return (<div className="product" onClick={goToItem}>
 		<img src={props.image} alt="" />
 		<h2>{props.title}</h2>
-		<h3>${props.price}</h3>
+		<h3>${props.price.toFixed(2)}</h3>
 		<div className="rating">
 
 		<h3>{props.rating}</h3> <AiFillStar/>
